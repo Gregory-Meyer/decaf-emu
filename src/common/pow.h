@@ -1,10 +1,8 @@
 #pragma once
 
-template<typename Type>
-inline Type
-Log2(Type x)
-{
-   Type y = 0;
+template<typename T>
+inline T Log2(T x) {
+   T y = 0;
 
    while (x > 1) {
       x >>= 1;

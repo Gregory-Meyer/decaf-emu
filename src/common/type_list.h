@@ -1,6 +1,4 @@
 #pragma once
 
-template<typename...>
-struct type_list
-{
-};
+template <typename ...>
+struct type_list { };

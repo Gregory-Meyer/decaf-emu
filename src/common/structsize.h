@@ -1,5 +1,7 @@
 #pragma once
+
 #include <cstddef>
+
 #include "platform.h"
 
 // Workaround weird macro concat ## behaviour
@@ -23,16 +25,16 @@
    }
 
 #ifdef PLATFORM_WINDOWS
-#define CHECK_MEMBER_OFFSET_START _CHECK_MEMBER_OFFSET_START
-#define CHECK_MEMBER_OFFSET_END _CHECK_MEMBER_OFFSET_END
+  #define CHECK_MEMBER_OFFSET_START _CHECK_MEMBER_OFFSET_START
+  #define CHECK_MEMBER_OFFSET_END _CHECK_MEMBER_OFFSET_END
 #else
-#define CHECK_MEMBER_OFFSET_START \
-   _Pragma("GCC diagnostic push") \
-   _Pragma("GCC diagnostic ignored \"-Winvalid-offsetof\"") \
-   _CHECK_MEMBER_OFFSET_START
-#define CHECK_MEMBER_OFFSET_END \
-   _CHECK_MEMBER_OFFSET_END \
-   _Pragma("GCC diagnostic pop")
+  #define CHECK_MEMBER_OFFSET_START \
+     _Pragma("GCC diagnostic push") \
+     _Pragma("GCC diagnostic ignored \"-Winvalid-offsetof\"") \
+     _CHECK_MEMBER_OFFSET_START
+  #define CHECK_MEMBER_OFFSET_END \
+     _CHECK_MEMBER_OFFSET_END \
+     _Pragma("GCC diagnostic pop")
 #endif
 
 // TODO: Figure out how to implement this, might be impossible?
