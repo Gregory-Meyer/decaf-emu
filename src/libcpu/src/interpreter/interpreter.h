@@ -1,21 +1,13 @@
 #pragma once
+
 #include "cpu.h"
 
-namespace cpu
-{
+namespace cpu {
+	namespace interpreter {
+		void initialise();
 
-namespace interpreter
-{
+		Core* one(Core *core);
 
-void
-initialise();
-
-Core *
-step_one(Core *core);
-
-void
-resume();
-
-} // namespace interpreter
-
+		void resume();
+	} // namespace interpreter
 } // namespace cpu
